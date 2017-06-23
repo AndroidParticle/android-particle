@@ -9,9 +9,6 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 
 
-/**
- * Created by Valdio Veliu on 1/13/2016.
- */
 public class FAB_Float_on_Scroll extends FloatingActionButton.Behavior {
 
 

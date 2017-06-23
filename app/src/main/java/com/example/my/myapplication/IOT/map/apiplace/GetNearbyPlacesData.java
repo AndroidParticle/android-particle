@@ -77,42 +77,12 @@ public class GetNearbyPlacesData extends AsyncTask<Object, String, String> {
             thongtin.add(marker);
             markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
 //            MarkerPoints = new ArrayList<>();
-            /**
-             mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
-            @Override public boolean onMarkerClick(Marker marker) {
-            if (MarkerPoints.size() == 1) {
-            MarkerPoints.clear();
-            mMap.clear();
-            }
-            MarkerPoints.add(latLng);
-            MarkerOptions options = new MarkerOptions();
-            options.position(latLng);
-            mMap.addMarker(options);
-            LatLng dinhvi = new LatLng(10.848183, 106.772388);
-            LatLng diemden = marker.getPosition();
-            Log.d("=========", diemden.latitude + "--" + diemden.longitude);
-            String url = getUrlchiduong(dinhvi, diemden);
-            FetchUrl FetchUrl = new FetchUrl();
-            FetchUrl.execute(url);
-            //                    //move map camera
-            //                    mMap.moveCamera(CameraUpdateFactory.newLatLng(origin));
-            //                    mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
-            return true;
-            }
-            });
-             */
-            //move map camera
-//            marker.showInfoWindow();
 
             mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
             mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
 //            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
 
         }
-//        for (Marker marker:thongtin){
-//            Log.d("showInfoWindow", "Entered ");
-//            marker.showInfoWindow();
-//        }
     }
 
     private String getUrlchiduong(LatLng origin, LatLng dest) {

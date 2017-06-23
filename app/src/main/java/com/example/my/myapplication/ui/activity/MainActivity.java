@@ -39,18 +39,14 @@ import com.example.my.myapplication.fenjuly.toggleexpandlayout.SettingCustomFrag
 import com.example.my.myapplication.ui.fragment.MainFragment;
 import com.example.my.myapplication.ui.fragment.ViewPagerFragment;
 
-//import br.liveo.Model.HelpLiveo;
 import br.liveo.interfaces.OnItemClickListener;
 import br.liveo.interfaces.OnPrepareOptionsMenuLiveo;
 import br.liveo.model.HelpLiveo;
 import br.liveo.navigationliveo.NavigationLiveo;
 
-//import com.example.my.myapplication.IOT.Config;
-
 public class MainActivity extends NavigationLiveo implements OnItemClickListener {
 
     private HelpLiveo mHelpLiveo;
-  //  public static Config configContants;
     SharedPreferences sharedPreferences;
     private boolean isSessionUser;
 
@@ -62,10 +58,6 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
 
     @Override
     public void onInt(Bundle savedInstanceState) {
-//        if (configContants == null) {
-//            configContants = new Config();
-//        }
-
         // User Information
         this.userName.setText(usernameDefault);
         this.userEmail.setText(emailDefault);
@@ -78,9 +70,7 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
         mHelpLiveo.add(getString(R.string.inbox), R.drawable.ic_place_black_24dp, 2);//0
         mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader//1 nono
         mHelpLiveo.add(getString(R.string.starred), R.drawable.ic_star_black_24dp);//2
-        mHelpLiveo.add(getString(R.string.sent_mail), R.drawable.ic_person_pin_circle_black_24dp);//3 @android:drawable/ic_menu_myplaces
-        // mHelpLiveo.add(getString(R.string.sent_mail), R.drawable.ic_person_pin_circle_black_24dp);//3 @android:drawable/ic_menu_myplaces
-        // mHelpLiveo.addNoCheck(getString(R.string.drafts), R.drawable.ic_drafts_black_24dp);
+        mHelpLiveo.add(getString(R.string.sent_mail), R.drawable.ic_person_pin_circle_black_24dp);//3
         mHelpLiveo.add(getString(R.string.drafts), R.drawable.ic_home_black_24dp);//4
         mHelpLiveo.addSeparator(); //Item separator//5 nono
         mHelpLiveo.add(getString(R.string.trash), R.drawable.ic_account_box_black_24dp);//6
@@ -140,16 +130,6 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
         int position = this.getCurrentPosition();
         this.setElevationToolBar(position != 2 ? 15 : 0);
 
-       /* try {
-            Intent intent = getIntent();
-            String email = intent.getStringExtra("Email");
-            String pass = intent.getStringExtra("Pass");
-            Log.i("taikhoan", email + " " + pass);
-            Toast.makeText(getBaseContext(), email + "---" + pass, Toast.LENGTH_LONG).show();
-
-        } catch (Exception e) {
-        }*/
-
         // kiem tra session dang nhap
         checkSession();
     }
@@ -203,11 +183,6 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
                 mFragment = new TestMapFragment();
                // mFragment = new Maps3Activity();
                 break;
-            /*case 3:
-                mFragment = null;
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent);
-                break;*/
             case 4:
                 mFragment = new IOTGridviewFragment();
                 break;
@@ -247,15 +222,6 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
         SharedPreferences.Editor clear = sharedPreferences.edit().clear();
         clear.clear(); clear.commit();
         checkSession();
-      /*  SharedPreferences.Editor editor = sharedPreferences.edit();
-        try {
-            editor.putString(ConfigApp.getFULLNAME(), null);
-            editor.putString(ConfigApp.getEMAIL(), null);
-            editor.putString(ConfigApp.getIdAccount(), null);
-
-            editor.commit();
-        } catch (Exception e) {
-        }*/
     }
 
     private OnPrepareOptionsMenuLiveo onPrepare = new OnPrepareOptionsMenuLiveo() {

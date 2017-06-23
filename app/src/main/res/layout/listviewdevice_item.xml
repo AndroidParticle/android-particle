@@ -67,13 +67,7 @@
                 android:textOn="" />
         </RelativeLayout>
 
-        <!--  ic_keyboard_arrow_right_black_36dp <View xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="1dp"
-              android:layout_marginBottom="8dp"
-              android:layout_marginStart="0dp"
-              android:layout_marginTop="8dp"
-              android:background="#B6B6B6" />-->
+
 
     </LinearLayout>
 

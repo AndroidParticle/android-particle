@@ -67,19 +67,6 @@
                 android:text="Name"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="#727272" />
-            <!--
-                        <ToggleButton
-                            android:id="@+id/chkState3"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerVertical="true"
-                            android:layout_marginStart="@dimen/activity_horizontal_margin"
-                            android:background="@drawable/toggle_selector"
-                            android:checked="true"
-                            android:padding="6dp"
-                            android:textOff=""
-                            android:textOn="" />-->
 
         </RelativeLayout>
 
@@ -122,19 +109,6 @@
                 android:text="Type"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="#727272" />
-
-            <!--  <ToggleButton
-                  android:id="@+id/chkState4"
-                  android:layout_width="24dp"
-                  android:layout_height="24dp"
-                  android:layout_alignParentEnd="true"
-                  android:layout_centerVertical="true"
-                  android:layout_marginStart="@dimen/activity_horizontal_margin"
-                  android:background="@drawable/toggle_selector"
-                  android:padding="6dp"
-                  android:textOff=""
-                  android:textOn="" />-->
-
         </RelativeLayout>
 
         <include layout="@layout/item_divider" />
@@ -178,17 +152,6 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="#727272" />
 
-            <!--<ToggleButton
-                android:id="@+id/chkState1"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:background="@drawable/toggle_selector"
-                android:padding="6dp"
-                android:textOff=""
-                android:textOn="" />-->
 
         </RelativeLayout>
 
@@ -232,18 +195,6 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="#727272" />
 
-            <!-- <ToggleButton
-                 android:id="@+id/chkState5"
-                 android:layout_width="24dp"
-                 android:layout_height="24dp"
-                 android:layout_alignParentEnd="true"
-                 android:layout_centerVertical="true"
-                 android:layout_marginStart="@dimen/activity_horizontal_margin"
-                 android:background="@drawable/toggle_selector"
-                 android:checked="true"
-                 android:padding="6dp"
-                 android:textOff=""
-                 android:textOn="" />-->
 
         </RelativeLayout>
 
@@ -288,17 +239,6 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="#727272" />
 
-            <!--<ToggleButton
-                android:id="@+id/chkState1"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:background="@drawable/toggle_selector"
-                android:padding="6dp"
-                android:textOff=""
-                android:textOn="" />-->
 
         </RelativeLayout>
 

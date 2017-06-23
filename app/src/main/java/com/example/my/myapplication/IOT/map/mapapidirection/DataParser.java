@@ -67,7 +67,7 @@ public class DataParser {
      * Courtesy : http://jeffreysambells.com/2010/05/27/decoding-polylines-from-google-maps-direction-api-with-java
      * */
     private List<LatLng> decodePoly(String encoded) {
-//toa do da bi ma hoa
+        //toa do da bi ma hoa
         //chuyen lai thanh toa do
         List<LatLng> poly = new ArrayList<>();
         int index = 0, len = encoded.length();

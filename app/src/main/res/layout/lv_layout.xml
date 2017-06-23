@@ -19,7 +19,6 @@
         android:background="@android:drawable/list_selector_background"
         android:clickable="true"
         android:src="@drawable/ic_details" />
-    <!--ic_keyboard_arrow_right_black_36dp-->
     <View
         android:id="@+id/duongdocvertical_divider"
         style="@style/listViewVerticalDivider"

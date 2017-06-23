@@ -9,10 +9,6 @@ import android.view.ViewGroup;
 import java.util.Collections;
 import java.util.List;
 import com.example.my.myapplication.R;
-
-/**
- * Created by Valdio Veliu on 1/12/2016.
- */
 public class Recycler_View_Adapter extends RecyclerView.Adapter<Recycler_View_Adapter.View_Holder> {
 
     List list = Collections.emptyList();

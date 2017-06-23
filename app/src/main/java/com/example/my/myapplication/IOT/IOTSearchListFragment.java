@@ -36,7 +36,6 @@ public class IOTSearchListFragment extends Fragment {
     SharedPreferences sharedPreferences;
     private ServiceDevice serviceDevice;
     ArrayList<Device> listDevice = null;
-    //
     // Declare Variables
     ListView list;
     ListViewSearchAdapter adapter;
@@ -78,22 +77,6 @@ public class IOTSearchListFragment extends Fragment {
         }
         Log.d("listdevice", listDevice.get(0).getNameDevice());
 
-        // Generate sample data
-        /*rank = new String[]{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
-
-        country = new String[]{"China", "India", "United States",
-                "Indonesia", "Brazil", "Pakistan", "Nigeria", "Bangladesh",
-                "Russia", "Japan"};
-
-        population = new String[]{"1,354,040,000", "1,210,193,422",
-                "315,761,000", "237,641,326", "193,946,886", "182,912,000",
-                "170,901,000", "152,518,015", "143,369,806", "127,360,000"};
-
-        flag = new int[]{R.drawable.backgroundweather, R.drawable.backgroundweather,
-                R.drawable.backgroundweather, R.drawable.backgroundweather,
-                R.drawable.backgroundweather, R.drawable.backgroundweather, R.drawable.backgroundweather,
-                R.drawable.backgroundweather, R.drawable.backgroundweather, R.drawable.backgroundweather};
-*/
         if (listDevice != null) {
 
 
@@ -109,7 +92,6 @@ public class IOTSearchListFragment extends Fragment {
             deviceArr = deviceArrT;
             flag = flagT;
         }
-        // Locate the ListView in listview_main.xml
         list = (ListView) rootView.findViewById(R.id.listviewsearch);
 
         for (int i = 0; i < deviceArr.length; i++) {
@@ -190,32 +172,8 @@ public class IOTSearchListFragment extends Fragment {
         ((EditText) searchView.findViewById(R.id.search_src_text))
                 .setHintTextColor(getResources().getColor(R.color.nliveo_white));
 
-        //tu dong focus
-        //menu.findItem(R.id.menu_search).expandActionView();
-
-//        ActionBar actionBar = getActionBar();
-//        SearchView searchView = new SearchView(this);
-//        actionBar.setCustomView(searchView);
-//        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-//        searchView.setQuery("test",true);
-//        searchView.setFocusable(true);
-//        searchView.setIconified(true);
-//        searchView.setIconifiedByDefault(true);
-//        searchView.clearFocus();
-//        searchView.requestFocusFromTouch();
-
-/*//v2
-        SearchManager searchManager = (SearchManager)
-                getContext().getSystemService(Context.SEARCH_SERVICE);
-
-        searchView.setSearchableInfo(searchManager.
-                getSearchableInfo(getActivity().getComponentName()));
-        searchView.setSubmitButtonEnabled(true);
-
-//*/
         searchView.setOnQueryTextListener(onQuerySearchView);
 
-        //menu.findItem(R.id.menu_add).setVisible(true);
         //tat nut add
         menu.findItem(R.id.menu_add).setVisible(false);
         mSearchCheck = false;
@@ -268,11 +226,7 @@ public class IOTSearchListFragment extends Fragment {
         Gson gson = new Gson();
         Type type = new TypeToken<ArrayList<Device>>() {
         }.getType();
-       /* //c1
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        String json = sharedPrefs.getString(ConfigApp.getListDevice(), null);
-        ArrayList<Device> arrayList = gson.fromJson(json, type);
-        Log.d("list", arrayList.get(0).getNameDevice());*/
+
         //c2
         String json2 = sharedPreferences.getString(ConfigApp.getListDevice(), null);
         arrayList2 = gson.fromJson(json2, type);

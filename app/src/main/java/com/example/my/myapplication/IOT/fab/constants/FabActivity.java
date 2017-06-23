@@ -20,24 +20,9 @@ import com.example.my.myapplication.R;
 
 public class FabActivity extends AppCompatActivity {
     private LinearLayout closeFAB;
-    // state
-//    private boolean fabHidden;
-//    private boolean inClickMode;
-//    private int iconSelected;
-//    private int buttonColourSelected;
-//    private int coverColourSelected;
-//    private boolean speedDialColoursEnabled;
-//    private boolean speedDialOptionalCloseEnabled;
 
     // views
     private FloatingActionButton fab;
-//    private Button hideShowButton;
-//    private Button switchModeButton;
-//    private Button changeCoverColourButton;
-//    private Button toggleSpeedDialColoursSwitch;
-//    private Button toggleSpeedDialOptionalCloseButton;
-//    private Button openSpeedDialButton;
-
     // button values
     private static int[] icons = new int[]{
             R.mipmap.ic_add,
@@ -66,27 +51,6 @@ public class FabActivity extends AppCompatActivity {
         setContentView(R.layout.fab_activity);
         setTitle(R.string.app_name);
 
-        // set/restore state
-//        if (savedInstanceState == null) {
-//            // initial state
-//            fabHidden = false;
-//            inClickMode = true;
-//            iconSelected = 0;
-//            buttonColourSelected = 0;
-//            coverColourSelected = 0;
-//            speedDialColoursEnabled = false;
-//            speedDialOptionalCloseEnabled = false;
-//        } else {
-//            // restore state
-//            fabHidden = savedInstanceState.getBoolean("fabHidden");
-//            inClickMode = savedInstanceState.getBoolean("inClickMode");
-//            iconSelected = savedInstanceState.getInt("iconSelected");
-//            buttonColourSelected = savedInstanceState.getInt("buttonColourSelected");
-//            coverColourSelected = savedInstanceState.getInt("coverColourSelected");
-//            speedDialColoursEnabled = savedInstanceState.getBoolean("speedDialColoursEnabled");
-//            speedDialOptionalCloseEnabled = savedInstanceState.getBoolean("speedDialOptionalCloseEnabled");
-//        }
-
 
         closeFAB = (LinearLayout) findViewById(R.id.closeFAB);
         closeFAB.setOnClickListener(new View.OnClickListener() {
@@ -100,15 +64,8 @@ public class FabActivity extends AppCompatActivity {
         // get reference to FAB
         fab = (FloatingActionButton) findViewById(R.id.fabmenu);
         fab.setIcon(icons[0]);
-        // initialise FAB
-//        if (savedInstanceState == null) {
-//            fab.setIcon(icons[iconSelected]);
-//            fab.setBackgroundColour(buttonColours[buttonColourSelected]);
-//            fab.setContentCoverColour(coverColours[coverColourSelected]);
-//        }
         fab.setMenuAdapter(new SpeedDialAdapter());
 
-        //fab.setOnClickListener(iv -> Toast.makeText(DemoActivity.this, R.string.click_simple, Toast.LENGTH_SHORT).show());
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,120 +87,13 @@ public class FabActivity extends AppCompatActivity {
                 Toast.makeText(FabActivity.this, R.string.speed_dial_closed, Toast.LENGTH_SHORT).show();
             }
         });
-        //	fab.setOnClickListener(iv -> Toast.makeText(DemoActivity.this, R.string.click_simple, Toast.LENGTH_SHORT).show());
-//		fab.setOnSpeedDialOpenListener(f -> Toast.makeText(DemoActivity.this, R.string.speed_dial_opened, Toast.LENGTH_SHORT).show());
-//		fab.setOnSpeedDialCloseListener(f -> Toast.makeText(DemoActivity.this, R.string.speed_dial_closed, Toast.LENGTH_SHORT).show());
 
-        // get references to buttons
-//        hideShowButton = (Button) findViewById(R.id.hide_show);
-//        switchModeButton = (Button) findViewById(R.id.switch_mode);
-//        changeCoverColourButton = (Button) findViewById(R.id.change_cover_colour);
-//        toggleSpeedDialColoursSwitch = (Button) findViewById(R.id.toggle_colours);
-//        toggleSpeedDialOptionalCloseButton = (Button) findViewById(R.id.toggle_optional_close);
-//        openSpeedDialButton = (Button) findViewById(R.id.open_speed_dial);
-//
-//        // update view state
-//        updateButtonStates();
-//
-//        // set click listeners
-//        hideShowButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (fabHidden) {
-//                    fab.show();
-//                } else {
-//                    fab.hide();
-//                }
-//                fabHidden = !fabHidden;
-//                updateButtonStates();
-//            }
-//        });
-//
-//        switchModeButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                inClickMode = !inClickMode;
-//                updateButtonStates();
-//            }
-//        });
-//
-//        findViewById(R.id.change_icon).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                iconSelected = ++iconSelected % icons.length;
-//                fab.setIcon(icons[iconSelected]);
-//            }
-//        });
-//
-//        findViewById(R.id.change_button_colour).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                buttonColourSelected = ++buttonColourSelected % buttonColours.length;
-//                fab.setBackgroundColour(buttonColours[buttonColourSelected]);
-//            }
-//        });
-//
-//        findViewById(R.id.change_cover_colour).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                coverColourSelected = ++coverColourSelected % coverColours.length;
-//                fab.setContentCoverColour(coverColours[coverColourSelected]);
-//            }
-//        });
-//
-//        toggleSpeedDialColoursSwitch.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                speedDialColoursEnabled = !speedDialColoursEnabled;
-//                updateButtonStates();
-//                fab.rebuildSpeedDialMenu();
-//            }
-//        });
-//
-//        toggleSpeedDialOptionalCloseButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                speedDialOptionalCloseEnabled = !speedDialOptionalCloseEnabled;
-//                updateButtonStates();
-//                fab.rebuildSpeedDialMenu();
-//            }
-//        });
-//
-//        openSpeedDialButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                fab.openSpeedDialMenu();
-//                if (!fab.isShown())
-//                    Toast.makeText(DemoActivity.this, R.string.disabled_when_hidden, Toast.LENGTH_SHORT).show();
-//            }
-//        });
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-//        outState.putBoolean("fabHidden", fabHidden);
-//        outState.putBoolean("inClickMode", inClickMode);
-//        outState.putInt("iconSelected", iconSelected);
-//        outState.putInt("buttonColourSelected", buttonColourSelected);
-//        outState.putInt("coverColourSelected", coverColourSelected);
-//        outState.putBoolean("speedDialColoursEnabled", speedDialColoursEnabled);
-//        outState.putBoolean("speedDialOptionalCloseEnabled", speedDialOptionalCloseEnabled);
     }
-
-//    private void updateButtonStates() {
-//        hideShowButton.setText(fabHidden ? R.string.show_fab : R.string.hide_fab);
-//        switchModeButton.setText(inClickMode ? R.string.switch_mode_to_speed_dial : R.string.switch_mode_to_click);
-//        changeCoverColourButton.setEnabled(!inClickMode);
-//        toggleSpeedDialColoursSwitch.setEnabled(!inClickMode);
-//        toggleSpeedDialColoursSwitch.setText(speedDialColoursEnabled ? R.string.toggle_colours_off : R.string.toggle_colours_on);
-//        toggleSpeedDialOptionalCloseButton.setEnabled(!inClickMode);
-//        toggleSpeedDialOptionalCloseButton.setText(speedDialOptionalCloseEnabled ? R.string.toggle_optional_close_off : R.string.toggle_optional_close_on);
-//        // openSpeedDialButton.setEnabled(!inClickMode);
-//        openSpeedDialButton.setEnabled(true);
-//    }
 
     private class SpeedDialAdapter extends SpeedDialMenuAdapter {
 
@@ -304,16 +154,6 @@ public class FabActivity extends AppCompatActivity {
 
         @Override
         protected int getBackgroundColour(int position) {
-//            if (speedDialColoursEnabled) {
-//                int[] colours = new int[]{
-//                        0xffff9900,
-//                        0xff0099ff,
-//                        0xffff0099,
-//                        0xff9900ff
-//                };
-//                return colours[position];
-//            }
-
             return super.getBackgroundColour(position);
         }
 
@@ -343,14 +183,5 @@ public class FabActivity extends AppCompatActivity {
             }
         }
 
-//        @Override
-//        protected boolean rotateFab() {
-//            return iconSelected == 0;
-//        }
-//
-//        @Override
-//        protected boolean isEnabled() {
-//            return !inClickMode;
-//        }
     }
 }

@@ -73,7 +73,6 @@ public class MapseActivity extends Fragment implements OnMapReadyCallback,
             super.onCreate(savedInstanceState);
 
 
-        //setContentView(R.layout.activity_mapse);
         rootView = inflater.inflate(R.layout.activity_mapse, container, false);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -82,10 +81,6 @@ public class MapseActivity extends Fragment implements OnMapReadyCallback,
         // Initializing
         MarkerPoints = new ArrayList<>();
 
-
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-       // SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-           //     .findFragmentById(R.id.map);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
 
@@ -120,9 +115,7 @@ public class MapseActivity extends Fragment implements OnMapReadyCallback,
             buildGoogleApiClient();
             mMap.setMyLocationEnabled(true);
         }
-//06-02 22:31:58.061 22978-22978/com.example.huynmynguynth.mapapidirection D/onMapClick:
 // https://maps.googleapis.com/maps/api/directions/json?origin=10.934842799001613,106.8701995164156&destination=10.913661383847856,106.85692191123962&sensor=false
-
         // Setting onclick event listener for the map
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
 

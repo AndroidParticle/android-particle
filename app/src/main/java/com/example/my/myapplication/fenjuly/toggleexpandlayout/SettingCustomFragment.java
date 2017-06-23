@@ -201,9 +201,6 @@ public class SettingCustomFragment extends Fragment {
         dateNotification.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                new DatePickerDialog(getContext(), date, c
-//                        .get(Calendar.DAY_OF_YEAR), c.get(Calendar.MONTH),
-//                        c.get(Calendar.YEAR)).show();
                 alertDatePicker(inflater, v);
             }
         });
@@ -307,11 +304,6 @@ public class SettingCustomFragment extends Fragment {
     * Show AlertDialog with date picker.
     */
     public void alertDatePicker(LayoutInflater inflater, View v) {
-
-/*
-     * Inflate the XML view. activity_main is in res/layout/date_picker.xml
-     */
-        //LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = inflater.inflate(R.layout.date_picker, null, false);
 
 // the time picker on the alert dialog, this is how to get the value

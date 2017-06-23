@@ -10,9 +10,6 @@
     android:paddingLeft="40dp"
     android:paddingRight="40dp"
     tools:context="com.example.my.myapplication.IOT.SignupActivity">
-    <!--
-        android:background="@mipmap/back_login"
-    -->
 
     <ImageView
         android:id="@+id/imageView2"
@@ -74,9 +71,6 @@
         android:backgroundTint="#ffffffff"
         android:onClick="checkAccount"
         android:text="Create account" />
-    <!--
-        android:background="@drawable/selector_xml_btn_yellow"
-    -->
 
     <TextView
         android:id="@+id/textViewHaveAccount"

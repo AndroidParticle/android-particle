@@ -107,19 +107,6 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     public void showDialogRegistry() {
-      /*
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Lỗi đăng ký");
-        builder.setMessage(message);
-        builder.setPositiveButton("Hủy", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-            }
-        });
-        AlertDialog dialog = builder.create();
-        dialog.show();*/
-
         AlertDialog alertDialog = new AlertDialog.Builder(getApplicationContext()).create();
         alertDialog.setTitle("Lỗi đăng ký");
         alertDialog.setMessage("Vui lòng thử lại");

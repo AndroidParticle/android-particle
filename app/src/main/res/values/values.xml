@@ -19,7 +19,6 @@
     <dimen name="speed_dial_disc_icon_size">24dp</dimen>
     <dimen name="speed_dial_disc_icon_margin">8dp</dimen>
 
-
     <string name="yes">Yes</string>
     <string name="no">No</string>
 

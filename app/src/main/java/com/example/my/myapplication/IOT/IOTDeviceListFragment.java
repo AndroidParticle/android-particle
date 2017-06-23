@@ -34,16 +34,6 @@ import java.util.ArrayList;
 public class IOTDeviceListFragment extends Fragment {
     private boolean mSearchCheck;
 
-    // Declare Variables
-    /*TextView txtrank;
-    TextView txtcountry;
-    TextView txtpopulation;
-    ImageView imgflag;
-
-    Device device;
-    boolean active;
-    int flag;*/
-
     private ServiceDevice serviceDevice;
     ArrayList<Device> listDevice = null;
     SharedPreferences sharedPreferences;
@@ -83,7 +73,6 @@ public class IOTDeviceListFragment extends Fragment {
         }
         Log.d("listdevice", listDevice.get(0).getNameDevice());
 
-        // Locate the ListView in listview_main.xml
         listAdd = (ListView) rootView.findViewById(R.id.listviewadd);
         // Pass results to ListViewAdapter Class
         adapter = new ListViewDeviceAdapter(getContext(), listDevice);
@@ -146,22 +135,11 @@ public class IOTDeviceListFragment extends Fragment {
         ((EditText) searchView.findViewById(R.id.search_src_text))
                 .setHintTextColor(getResources().getColor(R.color.nliveo_white));
 
-/*//v2
-        SearchManager searchManager = (SearchManager)
-                getContext().getSystemService(Context.SEARCH_SERVICE);
-
-        searchView.setSearchableInfo(searchManager.
-                getSearchableInfo(getActivity().getComponentName()));
-        searchView.setSubmitButtonEnabled(true);
-
-//*/
         searchView.setOnQueryTextListener(onQuerySearchView);
 
         searchView.setOnSearchClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(getActivity(), "click search", Toast.LENGTH_LONG).show();
-
                 Fragment mFragment = new IOTSearchListFragment();
                 FragmentManager manager = ((FragmentActivity) getContext()).getSupportFragmentManager();
                 manager.beginTransaction().replace(R.id.container, mFragment).commit();

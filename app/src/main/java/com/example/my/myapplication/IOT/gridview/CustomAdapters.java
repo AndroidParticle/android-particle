@@ -82,7 +82,6 @@ public class CustomAdapters extends BaseAdapter {
 
         holder.tv.setText(result[position]);
         holder.img.setImageResource(imageId[position]);
-       //holder.valueCurrentEnv.setText(envCurrent[position]);
         holder.valueCurrentEnv.setText(envStr[position]);
         rowView.setOnClickListener(new OnClickListener() {
 
@@ -92,12 +91,6 @@ public class CustomAdapters extends BaseAdapter {
                 Toast.makeText(context, "You Clicked " + result[position], Toast.LENGTH_LONG).show();
 
                 Fragment mFragment;
-               /* FragmentManager mFragmentManager;
-                try {
-                    mFragmentManager = ((FragmentActivity) context).getSupportFragmentManager();
-                } catch (ClassCastException e) {
-                    Log.e("TAG", "Can't get fragment manager");
-                }*/
 
                 // mFragment = new TestMapFragment();
                 mFragment = new IOTWebviewStatictisFragment();
@@ -110,7 +103,7 @@ public class CustomAdapters extends BaseAdapter {
                     Log.i("not null", "MyClass.getView() — get item number " + mFragment.toString());
                     FragmentManager manager = ((FragmentActivity) context).getSupportFragmentManager();
                     FragmentTransaction transaction = manager.beginTransaction();
-                    //mFragmentManager.beginTransaction().replace(R.id.container, mFragment).commit();
+
                     transaction.replace(R.id.container, mFragment).commit();
                 }
 

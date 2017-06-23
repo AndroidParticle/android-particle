@@ -35,9 +35,7 @@ public class DetailServiceCreateDevice extends AsyncTask<Device,Integer,Boolean>
         Boolean result = false;
         initPost();
         try {
-            // String username = URLEncoder.encode(params[0].getFullName(), "UTF-8");
             Device device = params[0];
-            // user.setFullName(username);
             // httpPut.setHeader("Accept", "application/json");
             httpPost.setHeader("Content-type", "application/json");
             Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();

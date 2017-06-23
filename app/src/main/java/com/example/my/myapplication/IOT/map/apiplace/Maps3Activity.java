@@ -79,10 +79,7 @@ public class Maps3Activity extends Fragment implements OnMapReadyCallback,
     private GoogleMap mMap;
     double latitude;
     double longitude;
-    //    double latitudegps;
-//    double longitudegps;
     private int PROXIMITY_RADIUS = 1000;
-    // private float PROXIMITY_RADIUSPaint = (float) PROXIMITY_RADIUS * PROXIMITY_RADIUS * PROXIMITY_RADIUS * PROXIMITY_RADIUS*PROXIMITY_RADIUS*PROXIMITY_RADIUS;
     private float PROXIMITY_RADIUSPaint = 1000;
     GoogleApiClient mGoogleApiClient;
     Location mLastLocation;
@@ -99,17 +96,11 @@ public class Maps3Activity extends Fragment implements OnMapReadyCallback,
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.inflater = inflater;
-        // setContentView(R.layout.activity_maps);  //gps htmynguyen
         rootView = inflater.inflate(R.layout.activity_maps, container, false);
-       // setContentView(R.layout.activity_maps);
         //gps htmynguyen
         gps = new GPSTracker(getContext());
 
         if (gps.canGetLocation()) {
-//            double latitude = gps.getLatitude();
-//            double longitude = gps.getLongitude();
-//            latitudegps = gps.getLatitude();
-//            longitudegps = gps.getLongitude();
             Log.d("toadoLAgps==", "" + latitude);
             latitude = gps.getLatitude();
             longitude = gps.getLongitude();
@@ -125,8 +116,6 @@ public class Maps3Activity extends Fragment implements OnMapReadyCallback,
             gps.showSettingsAlert();
         }
         MarkerPoints = new ArrayList<>();
-//        LatLng point = new LatLng(gps.getLatitude(), gps.getLongitude());
-//        MarkerPoints.add(point);
 
         //end gps
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -141,9 +130,6 @@ public class Maps3Activity extends Fragment implements OnMapReadyCallback,
             Log.d("onCreate", "Google Play Services available.");
         }
 
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-//        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-//                .findFragmentById(R.id.map);
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
 
         mapFragment.getMapAsync(this);
@@ -249,53 +235,7 @@ public class Maps3Activity extends Fragment implements OnMapReadyCallback,
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(dinhvitoado, 15));
             }
         });
-        //kieu bando
-        //   mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-//htmynguyen
-        //ve duong tron
-//        googlePlacesUrl.append("location=" + "10.848183" + "," + "106.772388");
 
-//        Log.d("kinhdoGPS===", 10.848183 + "");//10.848183
-//        Log.d("vido2GPS====", 106.772388 + "");//106.772388
-
-        // LatLng sydney = new LatLng(Double.parseDouble(VITRIGPSla1.toString()), Double.parseDouble(VITRIGPSlo1.toString()));
-//        LatLng sydney = new LatLng(10.848183, 106.772388);
-        /**  Log.d("kinhdoGPS===", latitude + "");//10.848183
-         Log.d("vido2GPS====", longitude + "");//106.772388
-         LatLng sydney = new LatLng(latitude, longitude);
-         CircleOptions options = new CircleOptions();
-         options.center(sydney);
-         //Radius in meters
-         options.radius(100000);
-         //        options.radius(PROXIMITY_RADIUS);
-         options.fillColor(getResources()
-         .getColor(R.color.fill_color));
-         options.strokeColor(getResources()
-         .getColor(R.color.stroke_color));
-         options.strokeWidth(100);
-         //        //end ve duong tron
-
-
-         mMap.addMarker(new MarkerOptions().position(sydney).title("This is My")
-         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA)));
-
-         mMap.addCircle(options);
-         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-         // TODO: Consider calling
-         //    ActivityCompat#requestPermissions
-         // here to request the missing permissions, and then overriding
-         //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-         //                                          int[] grantResults)
-         // to handle the case where the user grants the permission. See the documentation
-         // for ActivityCompat#requestPermissions for more details.
-         return;
-         }
-         mMap.setMyLocationEnabled(true);
-         mMap.getUiSettings().setZoomControlsEnabled(true);
-         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 20));
-         //        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-         */
-        //end htmynguyen
 
         //Initialize Google Play Services
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -309,99 +249,6 @@ public class Maps3Activity extends Fragment implements OnMapReadyCallback,
             buildGoogleApiClient();
             mMap.setMyLocationEnabled(true);
         }
-/*
-        Button btnRestaurant = (Button) findViewById(R.id.btnRestaurant);
-        btnRestaurant.setOnClickListener(new View.OnClickListener() {
-            String Restaurant = "restaurant";
-
-            @Override
-            public void onClick(View v) {
-                Log.d("onClick", "Button is Clicked");
-                mMap.clear();
-                theloai = Restaurant;
-                String url = getUrl(latitude, longitude, Restaurant);
-                //my
-//                String url = getUrl(latitudegps, longitudegps, Restaurant);
-                Object[] DataTransfer = new Object[2];
-                DataTransfer[0] = mMap;
-                DataTransfer[1] = url;
-                Log.d("onClick", url);
-                GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
-                getNearbyPlacesData.execute(DataTransfer);
-                Toast.makeText(Maps3Activity.this, "Nearby Restaurants", Toast.LENGTH_LONG).show();
-            }
-        });
-
-        Button btnHospital = (Button) findViewById(R.id.btnHospital);
-        btnHospital.setOnClickListener(new View.OnClickListener() {
-            String Hospital = "hospital";
-
-            @Override
-            public void onClick(View v) {
-                Log.d("onClick", "Button is Clicked");
-                mMap.clear();
-                theloai = Hospital;
-                String url = getUrl(latitude, longitude, Hospital);
-                //my
-//                String url = getUrl(latitudegps, longitudegps, Hospital);
-                Object[] DataTransfer = new Object[2];
-                DataTransfer[0] = mMap;
-                DataTransfer[1] = url;
-                Log.d("onClick", url);
-                GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
-                getNearbyPlacesData.execute(DataTransfer);
-                Toast.makeText(Maps3Activity.this, "Nearby Hospitals", Toast.LENGTH_LONG).show();
-            }
-        });
-
-        Button btnSchool = (Button) findViewById(R.id.btnSchool);
-        btnSchool.setOnClickListener(new View.OnClickListener() {
-            String School = "school";
-
-            @Override
-            public void onClick(View v) {
-                Log.d("onClick", "Button is Clicked");
-                mMap.clear();
-                theloai = School;
-                if (mCurrLocationMarker != null) {
-                    mCurrLocationMarker.remove();
-                }
-                String url = getUrl(latitude, longitude, School);
-                //my
-//                String url = getUrl(latitudegps, longitudegps, School);
-                Object[] DataTransfer = new Object[2];
-                DataTransfer[0] = mMap;
-                DataTransfer[1] = url;
-                Log.d("onClick", url);
-                GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
-                getNearbyPlacesData.execute(DataTransfer);
-                Toast.makeText(Maps3Activity.this, "Nearby Schools", Toast.LENGTH_LONG).show();
-                LatLng dinhvitoado = new LatLng(latitude, longitude);
-                MarkerOptions markerOptions = new MarkerOptions();
-                markerOptions.position(dinhvitoado);
-                markerOptions.title("Current Position");
-                //toa do dinh vi
-                markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
-                Marker marker = mMap.addMarker(markerOptions);
-                marker.showInfoWindow();
-                CircleOptions options = new CircleOptions();
-                options.center(dinhvitoado);
-                //Radius in meters
-                //        options.radius(100000);
-                options.radius(PROXIMITY_RADIUSPaint);
-                options.fillColor(getResources()
-                        .getColor(R.color.fill_color));
-                options.strokeColor(getResources()
-                        .getColor(R.color.stroke_color));
-                options.strokeWidth(10);
-                //        //end ve duong tron
-                mMap.addCircle(options);
-
-                mMap.getUiSettings().setZoomControlsEnabled(true);
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(dinhvitoado, 15));
-            }
-        });
-        */
         Button map2 = (Button) rootView.findViewById(R.id.maptest);
         map2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -410,8 +257,6 @@ public class Maps3Activity extends Fragment implements OnMapReadyCallback,
                 FragmentManager manager = ((FragmentActivity) getContext()).getSupportFragmentManager();
                 manager.beginTransaction().replace(R.id.container, mFragment).commit();
 
-//                Intent ii = new Intent(getContext(), MapsActivity.class);
-//                startActivity(ii);
             }
         });
         Button mapdirection = (Button) rootView.findViewById(R.id.buttondirection);
@@ -421,8 +266,6 @@ public class Maps3Activity extends Fragment implements OnMapReadyCallback,
                 Fragment mFragment = new MapseActivity();
                 FragmentManager manager = ((FragmentActivity) getContext()).getSupportFragmentManager();
                 manager.beginTransaction().replace(R.id.container, mFragment).commit();
-                //Intent ii = new Intent(Maps3Activity.this, MapseActivity.class);
-                //startActivity(ii);
             }
         });
 
@@ -433,8 +276,7 @@ public class Maps3Activity extends Fragment implements OnMapReadyCallback,
                 Fragment mFragment = new TestMapFragment();
                 FragmentManager manager = ((FragmentActivity) getContext()).getSupportFragmentManager();
                 manager.beginTransaction().replace(R.id.container, mFragment).commit();
-                //Intent ii = new Intent(Maps3Activity.this, MapseActivity.class);
-                //startActivity(ii);
+
             }
         });
 
@@ -495,66 +337,7 @@ public class Maps3Activity extends Fragment implements OnMapReadyCallback,
                 return true;
             }
         });
-        // Setting onclick event listener for the map
-        /**
-         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
-        @Override public void onMapClick(LatLng point) {
 
-        mMap.clear();
-        // Already two locations
-        if (MarkerPoints.size() == 1) {
-        MarkerPoints.clear();
-        mMap.clear();
-        }
-
-        // Adding new item to the ArrayList
-        MarkerPoints.add(point);
-
-        // Creating MarkerOptions
-        MarkerOptions options = new MarkerOptions();
-
-        // Setting the position of the marker
-        options.position(point);
-
-        /**
-         * For the start location, the color of marker is GREEN and
-         * for the end location, the color of marker is RED.
-         */
-
-        // toa do 2 diem click
-//                if (MarkerPoints.size() == 1) {
-//                    options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
-//                } else
-// if (MarkerPoints.size() == 2) {
-//                    options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
-//                }
-        // Add new marker to the Google Map Android API V2
-             /*   mMap.addMarker(options);
-
-                // Checks, whether start and end locations are captured
-//                if (MarkerPoints.size() >= 2) {
-                LatLng origin = MarkerPoints.get(0);
-//                    LatLng dest = MarkerPoints.get(1);
-//
-//                    // Getting URL to the Google Directions API
-//                    String url = getUrl(origin, dest);
-                LatLng dest = new LatLng(latitude, longitude);
-
-                String url = getUrlchiduong(dest, origin);
-
-////                    Log.d("onMapClick", url.toString());
-                FetchUrl FetchUrl = new FetchUrl();
-////
-////                    // Start downloading json data from Google Directions API
-                FetchUrl.execute(url);
-//                    //move map camera
-//                    mMap.moveCamera(CameraUpdateFactory.newLatLng(origin));
-//                    mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
-//                }
-
-
-            }
-        });*/
     }
 
     protected synchronized void buildGoogleApiClient() {
@@ -637,13 +420,7 @@ public class Maps3Activity extends Fragment implements OnMapReadyCallback,
         mMap.addCircle(options);
 
         if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
+
             return;
         }
         mMap.setMyLocationEnabled(true);
@@ -673,11 +450,6 @@ public class Maps3Activity extends Fragment implements OnMapReadyCallback,
             if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
                     Manifest.permission.ACCESS_FINE_LOCATION)) {
 
-                // Show an explanation to the user *asynchronously* -- don't block
-                // this thread waiting for the user's response! After the user
-                // sees the explanation, try again to request the permission.
-
-                //Prompt the user once explanation has been shown
                 ActivityCompat.requestPermissions(getActivity(),
                         new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                         MY_PERMISSIONS_REQUEST_LOCATION);
@@ -734,7 +506,6 @@ public class Maps3Activity extends Fragment implements OnMapReadyCallback,
         sharedPreferences = getActivity().getSharedPreferences(ConfigApp.getVITRIGPS(), Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         ViTri vitriGPS = new ViTri(laGPS, loGPS);
-        //  editor.putString(ConfigApp.getVitriGPSla(), vitriGPS);
         editor.putString("VITRIGPSla", laGPS);
         editor.putString("VITRIGPSlo", loGPS);
         Log.d("toadoLAgps11========", laGPS);

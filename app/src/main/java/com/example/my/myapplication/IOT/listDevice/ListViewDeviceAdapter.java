@@ -88,15 +88,11 @@ public class ListViewDeviceAdapter extends BaseAdapter {
         final ViewHolder holder;
         if (view == null) {
             holder = new ViewHolder();
-            //view = inflater.inflate(R.layout.listviewdevice_item, null);
             view = inflater.inflate(R.layout.lv_layout, null);
-            // Locate the TextViews in listview_item.xml
             holder.nameDevice = (TextView) view.findViewById(R.id.NameDevice);
             holder.deviceId = (TextView) view.findViewById(R.id.DeviceIdItem);
             holder.chkState = (ToggleButton) view.findViewById(R.id.chkState);
 
-            // Locate the ImageView in listview_item.xml
-            //holder.flag = (ImageView) view.findViewById(R.id.flag);
             holder.flagsetting = (ImageView) view.findViewById(R.id.flagsetting);
             view.setTag(holder);
         } else {
@@ -108,10 +104,6 @@ public class ListViewDeviceAdapter extends BaseAdapter {
         holder.chkState.setChecked(worldpopulationlist.get(position).isActive());
         Log.i("checkvalue", worldpopulationlist.get(position).isActive() + "" + worldpopulationlist.get(position).getDeviceId());
 
-        // Set the results into ImageView
-//        holder.flag.setImageResource(worldpopulationlist.get(position)
-//                .getFlag());
-
         // Listen for ListView Item Click
         view.setOnClickListener(new OnClickListener() {
 
@@ -121,31 +113,6 @@ public class ListViewDeviceAdapter extends BaseAdapter {
             }
         });
 
-        /*holder.flag.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PopupMenu popupMenu = new PopupMenu(mContext, v);
-                popupMenu.inflate(R.menu.menu);
-
-                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-                        switch (item.getItemId()) {
-                            case R.id.menu_search:
-                                //do something here...
-                                Toast.makeText(mContext,"a"+worldpopulationlist.get(position).getCountry(),Toast.LENGTH_LONG).show();
-                                break;
-                            case R.id.menu_add:
-
-                                //do something
-                                break;
-                        }
-                        return false;
-                    }
-                });
-                popupMenu.show();
-            }
-        });*/
         holder.chkState.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -170,11 +137,6 @@ public class ListViewDeviceAdapter extends BaseAdapter {
                     InfoDeviceFragment.reloadInfoDeviceFragment(mContext);
                 }
 
-//                Fragment mFragment;
-//                mFragment = new IOTDeviceListFragment();
-//                FragmentManager manager = ((FragmentActivity) mContext).getSupportFragmentManager();
-//                FragmentTransaction transaction = manager.beginTransaction();
-//                transaction.replace(R.id.container, mFragment).commit();
             }
         });
 
@@ -220,14 +182,6 @@ public class ListViewDeviceAdapter extends BaseAdapter {
                     argTypes = new Class[]{boolean.class};
                     menuHelper.getClass().getDeclaredMethod("setForceShowIcon", argTypes).invoke(menuHelper, true);
                 } catch (Exception e) {
-                    // Possible exceptions are NoSuchMethodError and NoSuchFieldError
-                    //
-                    // In either case, an exception indicates something is wrong with the reflection code, or the
-                    // structure of the PopupMenu class or its dependencies has changed.
-                    //
-                    // These exceptions should never happen since we're shipping the AppCompat library in our own apk,
-                    // but in the case that they do, we simply can't force icons to display, so log the error and
-                    // show the menu normally.
 
                     Log.w("TAG", "error forcing menu icons to show", e);
                     popupMenu.show();
@@ -236,28 +190,6 @@ public class ListViewDeviceAdapter extends BaseAdapter {
 
                 popupMenu.show();
 
-                //set vi tri cua popmenu
-               /* // Try to force some horizontal offset
-                try {
-                    Field fListPopup = menuHelper.getClass().getDeclaredField("mPopup");
-                    fListPopup.setAccessible(true);
-                    Object listPopup = fListPopup.get(menuHelper);
-                    argTypes = new Class[]{int.class};
-                    Class listPopupClass = listPopup.getClass();
-
-                    // Get the width of the popup window
-                    int width = (Integer) listPopupClass.getDeclaredMethod("getWidth").invoke(listPopup);
-
-                    // Invoke setHorizontalOffset() with the negative width to move left by that distance
-                    listPopupClass.getDeclaredMethod("setHorizontalOffset", argTypes).invoke(listPopup, -width);
-
-                    // Invoke show() to update the window's position
-                    listPopupClass.getDeclaredMethod("show").invoke(listPopup);
-                } catch (Exception e) {
-                    // Again, an exception here indicates a programming error rather than an exceptional condition
-                    // at runtime
-                    Log.w("TAG", "Unable to force offset", e);
-                }*/
             }
         });
         return view;

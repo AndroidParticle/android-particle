@@ -59,10 +59,6 @@ public class GPSTracker extends Service implements LocationListener {
 
                 if (isNetworkEnabled) {
 
-
-                    //locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_TIME_BW_UPDATES, MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
-
-
                     if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.M){
                         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                             // TODO: Consider calling
@@ -90,10 +86,6 @@ public class GPSTracker extends Service implements LocationListener {
 
                 if (isGPSEnabled) {
                     if (location == null) {
-//                        locationManager.requestLocationUpdates(
-//                                LocationManager.GPS_PROVIDER,
-//                                MIN_TIME_BW_UPDATES,
-//                                MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
                         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
 
                         if (locationManager != null) {

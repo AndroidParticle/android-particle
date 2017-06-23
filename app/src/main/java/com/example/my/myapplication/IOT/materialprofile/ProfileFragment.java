@@ -90,12 +90,6 @@ public class ProfileFragment extends Fragment {
             setAccountInfo(accountInfo, nameAccount, emailAccount);
         }
 
-
-//        Toolbar toolbar = (Toolbar) rootView.findViewById(R.id.toolbarprofile);
-//        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
-
-//        setSupportActionBar(toolbar);
-
         fabpro = (FloatingActionButton) rootView.findViewById(R.id.fabpro);
         fab1 = (FloatingActionButton) rootView.findViewById(R.id.fabpro1);
         fab2 = (FloatingActionButton) rootView.findViewById(R.id.fabpro2);
@@ -133,8 +127,6 @@ public class ProfileFragment extends Fragment {
         fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Snackbar.make(v, "Replace with your own action 1", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
                 AlertEdit();
                 myDialog.show();
 
@@ -149,9 +141,6 @@ public class ProfileFragment extends Fragment {
 
     private void AlertEdit() {
         //alert edit
-//        ContextThemeWrapper ctw = new ContextThemeWrapper(getContext(), R.style.LE_THEME);
-//        AlertDialog.Builder builder = new AlertDialog.Builder(ctw);
-
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
 
         LayoutInflater inflaters = LayoutInflater.from(getContext());
@@ -195,9 +184,6 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // TODO Auto-generated method stub
-              /*  Toast.makeText(getContext(),
-                        "You Have Cancel the Dialog box", Toast.LENGTH_LONG)
-                        .show();*/
                 setVisibilityFAB();
 
             }
@@ -242,14 +228,6 @@ public class ProfileFragment extends Fragment {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-       /* if (check != null) {
-            Log.d("edit", "true");
-            Toast.makeText(getContext(), "true", Toast.LENGTH_LONG).show();
-            //getActivity().finish();
-        } else {
-            Log.d("edit", "false");
-            Toast.makeText(getContext(), "false", Toast.LENGTH_LONG).show();
-        }*/
         return check;
 
     }
@@ -269,8 +247,6 @@ public class ProfileFragment extends Fragment {
             linearLayout1.setVisibility(View.GONE);
             linearLayout2.setVisibility(View.GONE);
         } else {
-            //linearLayout1.setVisibility(View.VISIBLE);
-            // linearLayout2.setVisibility(View.VISIBLE);
         }
     }
 
@@ -287,15 +263,9 @@ public class ProfileFragment extends Fragment {
         Gson gson = new Gson();
         Type type = new TypeToken<Account>() {
         }.getType();
-       /* //c1
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        String json = sharedPrefs.getString(ConfigApp.getListDevice(), null);
-        ArrayList<Device> arrayList = gson.fromJson(json, type);
-        Log.d("list", arrayList.get(0).getNameDevice());*/
         //c2
         String json2 = sharedPreferences.getString(ConfigApp.getACCOUNTINFO(), null);
         Account account = gson.fromJson(json2, type);
-//        Log.d("list2", arrayList2.get(0).getNameType());
         return account;
     }
 
@@ -303,7 +273,6 @@ public class ProfileFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         //setHasOptionsMenu(true);
-
     }
 
 
@@ -315,22 +284,8 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
         super.onPrepareOptionsMenu(menu);
-        //menu.clear();    //remove all items
-        //getActivity().getMenuInflater().inflate(R.menu.menu_profile, menu);
     }
-  /*  @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_profile, menu);
-    }*/
 
-/*
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_profile, menu);
-        return true;
-    }
-*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

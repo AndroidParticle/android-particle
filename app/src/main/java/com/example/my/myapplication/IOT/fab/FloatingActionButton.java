@@ -378,7 +378,6 @@ public class FloatingActionButton extends RelativeLayout {
 
             // set background colour
             if (Build.VERSION.SDK_INT >= 21) {
-                // ((CardView) view.findViewById(R.id.card)).setCardBackgroundColor(menuAdapter.getBackgroundColour(i));
             } else {
                 ((GradientDrawable) view.findViewById(R.id.card).getBackground()).setColor(menuAdapter.getBackgroundColour(i));
             }
@@ -435,9 +434,6 @@ public class FloatingActionButton extends RelativeLayout {
                     if (menuAdapter.onMenuItemClick((int) v.getTag())) closeSpeedDialMenu();
                 }
             });
-//			view.setOnClickListener(v -> {
-//				if (menuAdapter.onMenuItemClick((int) v.getTag())) closeSpeedDialMenu();
-//			});
         }
     }
 

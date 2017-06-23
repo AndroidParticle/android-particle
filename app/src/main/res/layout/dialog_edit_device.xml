@@ -49,7 +49,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/activity_horizontal_margininfo"
                 android:layout_toEndOf="@id/ivContactItem3"
-                android:layout_toStartOf="@+id/chkState3"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="Name"
@@ -69,19 +68,7 @@
                 android:text="PhotonSoldCounter"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#727272" />
-            <!--
-                        <ToggleButton
-                            android:id="@+id/chkState3"
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:layout_alignParentEnd="true"
-                            android:layout_centerVertical="true"
-                            android:layout_marginStart="@dimen/activity_horizontal_margininfo"
-                            android:background="@drawable/toggle_selector"
-                            android:checked="true"
-                            android:padding="6dp"
-                            android:textOff=""
-                            android:textOn="" />-->
+
 
         </RelativeLayout>
 
@@ -126,17 +113,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#727272" />
 
-            <!--  <ToggleButton
-                  android:id="@+id/chkState4"
-                  android:layout_width="24dp"
-                  android:layout_height="24dp"
-                  android:layout_alignParentEnd="true"
-                  android:layout_centerVertical="true"
-                  android:layout_marginStart="@dimen/activity_horizontal_margininfo"
-                  android:background="@drawable/toggle_selector"
-                  android:padding="6dp"
-                  android:textOff=""
-                  android:textOn="" />-->
+
 
         </RelativeLayout>
 
@@ -163,7 +140,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/activity_horizontal_margininfo"
                 android:layout_toEndOf="@id/ivContactItem1"
-                android:layout_toStartOf="@+id/chkState1"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="Device ID"
@@ -182,17 +158,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#727272" />
 
-            <!--<ToggleButton
-                android:id="@+id/chkState1"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/activity_horizontal_margininfo"
-                android:background="@drawable/toggle_selector"
-                android:padding="6dp"
-                android:textOff=""
-                android:textOn="" />-->
+
 
         </RelativeLayout>
 
@@ -236,18 +202,6 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#727272" />
 
-            <!-- <ToggleButton
-                 android:id="@+id/chkState5"
-                 android:layout_width="24dp"
-                 android:layout_height="24dp"
-                 android:layout_alignParentEnd="true"
-                 android:layout_centerVertical="true"
-                 android:layout_marginStart="@dimen/activity_horizontal_margininfo"
-                 android:background="@drawable/toggle_selector"
-                 android:checked="true"
-                 android:padding="6dp"
-                 android:textOff=""
-                 android:textOn="" />-->
 
         </RelativeLayout>
         <include layout="@layout/item_divider" />
@@ -273,7 +227,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/activity_horizontal_margin"
                 android:layout_toEndOf="@id/imgKeyThingspeak"
-                android:layout_toStartOf="@+id/chkState1"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="FYQOFWDRQ9JKGBFE"
@@ -291,17 +244,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="#727272" />
 
-            <!--<ToggleButton
-                android:id="@+id/chkState1"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="@dimen/activity_horizontal_margin"
-                android:background="@drawable/toggle_selector"
-                android:padding="6dp"
-                android:textOff=""
-                android:textOn="" />-->
+
 
         </RelativeLayout>
     </LinearLayout>

@@ -41,14 +41,6 @@
             android:text="@string/namePlace"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <!--     <TextView
-                 android:id="@+id/rank"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_alignBottom="@+id/namePlace"
-                 android:layout_toRightOf="@+id/namePlace"
-                 android:text="@string/namePlace" />-->
-
         <TextView
             android:id="@+id/locationLable"
             android:layout_width="wrap_content"

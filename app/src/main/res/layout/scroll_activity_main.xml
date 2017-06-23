@@ -34,9 +34,6 @@
         app:layout_behavior="com.example.my.myapplication.IOT.scrollFAB.Scrolling_Floating_Action_Button.FAB_Float_on_Scroll"
         />
 
-    <!--app:layout_behavior="com.valdio.valdioveliu.floatingactionbuttonproject.Scrolling_Floating_Action_Button.FAB_Float_on_Scroll"-->
-    <!--app:layout_behavior="com.valdio.valdioveliu.floatingactionbuttonproject.Scrolling_Floating_Action_Button.FAB_Hide_on_Scroll"-->
-
     <include layout="@layout/fab_layout" />
 
 </android.support.design.widget.CoordinatorLayout>

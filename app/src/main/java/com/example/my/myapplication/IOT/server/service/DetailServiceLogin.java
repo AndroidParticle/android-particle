@@ -68,7 +68,6 @@ public class DetailServiceLogin extends AsyncTask<String, Integer, LoginInfo> {
             BufferedReader br = new BufferedReader(new InputStreamReader(response.getEntity().getContent()));
 
             String line = "";
-//            Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").create();
             Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
             String jsonResult = "";
             while ((line = br.readLine()) != null) {

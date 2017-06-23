@@ -10,7 +10,6 @@
     <dimen name="activity_horizontal_margininfo">13dp</dimen>
 
   <!-- Overriding sizes of the FAB -->
-  <!-- <dimen name="design_fab_size_normal">90dp</dimen>
    <dimen name="design_fab_size_mini">30dp</dimen>-->
   <dimen name="fab_marginpro">200dp</dimen>
   <dimen name="fab_marginpro2">300dp</dimen>
@@ -20,11 +19,7 @@
   <dimen name="lvPrimaryTextSize">18sp</dimen>
   <dimen name="lvSecondaryTextSize">14sp</dimen>
 
-  <!--<dimen name="lvHdrItemHeight">45dp</dimen>-->
   <dimen name="lvItemHeight">65dp</dimen>
-
-  <!--<dimen name="lvHeadingPaddingLeft">8dp</dimen>-->
-  <!--<dimen name="lvHeadingTextSize">14sp</dimen>-->
 
   <dimen name="lvPrimaryPaddingTop">6dp</dimen>
   <dimen name="lvPrimaryPaddingBottom">1dp</dimen>
@@ -38,6 +33,4 @@
   <dimen name="lvDividerMargin">15dp</dimen>
   <dimen name="lvSectionDividerMargin">5dp</dimen>
   <dimen name="lvDividerWidth">1dp</dimen>
-
-  <!--<dimen name="lvSectionDividerMarginTop">5dp</dimen>-->
 </resources>

@@ -53,16 +53,11 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // setContentView(R.layout.activity_maps);  //gps htmynguyen
         rootView = inflater.inflate(R.layout.activity_maps, container, false);
 
         gps = new GPSTracker(getContext());
 
         if (gps.canGetLocation()) {
-//            double latitude = gps.getLatitude();
-//            double longitude = gps.getLongitude();
-//            latitudegps = gps.getLatitude();
-//            longitudegps = gps.getLongitude();
             latitude = gps.getLatitude();
             longitude = gps.getLongitude();
             Log.d("toadoLAgps==", "" + latitude);
@@ -78,10 +73,6 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
             gps.showSettingsAlert();
         }
         //end gps
-
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-       // SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-         //       .findFragmentById(R.id.map);
 
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
 
@@ -103,20 +94,7 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-//        LatLng sydney = new LatLng(-34, 151);
-//        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-        //htmynguyen
-        //ve duong tron
-//        googlePlacesUrl.append("location=" + "10.848183" + "," + "106.772388");
-
-//        Log.d("kinhdoGPS===", 10.848183 + "");//10.848183
-//        Log.d("vido2GPS====", 106.772388 + "");//106.772388
         CircleOptions options = new CircleOptions();
-        // LatLng sydney = new LatLng(Double.parseDouble(VITRIGPSla1.toString()), Double.parseDouble(VITRIGPSlo1.toString()));
-//        LatLng sydney = new LatLng(10.848183, 106.772388);
-//                LatLng sydney = new LatLng(latitudegps, longitudegps);
         LatLng sydney = new LatLng(latitude, longitude);
 
         options.center(sydney);
@@ -145,15 +123,11 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
         mMap.setMyLocationEnabled(true);
         mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 20));
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-        //end htmynguyen
-    } // tao session vitriGPS
-
+    }
+    // tao session vitriGPS
     public void createSessionVITRIGPS(String laGPS, String loGPS) {
         sharedPreferences = getActivity().getSharedPreferences(ConfigApp.getVITRIGPS(), Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        ViTri vitriGPS = new ViTri(laGPS, loGPS);
-        //  editor.putString(ConfigApp.getVitriGPSla(), vitriGPS);
         editor.putString("VITRIGPSla", laGPS);
         editor.putString("VITRIGPSlo", loGPS);
         Log.d("toadoLAgps11========", laGPS);

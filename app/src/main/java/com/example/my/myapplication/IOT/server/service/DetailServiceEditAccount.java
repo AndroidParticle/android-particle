@@ -35,9 +35,7 @@ public class DetailServiceEditAccount extends AsyncTask<Account, Integer, Accoun
         initPut();
         try {
 
-           // String username = URLEncoder.encode(params[0].getFullName(), "UTF-8");
             Account user = params[0];
-           // user.setFullName(username);
             // httpPut.setHeader("Accept", "application/json");
             httpPut.setHeader("Content-type", "application/json");
             Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();

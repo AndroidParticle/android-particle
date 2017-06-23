@@ -36,9 +36,7 @@ public class DetailServiceEditDevice extends AsyncTask<Device, Integer, Boolean>
         setDeviceID(params[0].getDeviceId());
         initPost();
         try {
-            // String username = URLEncoder.encode(params[0].getFullName(), "UTF-8");
             Device device = params[0];
-            // user.setFullName(username);
             // httpPut.setHeader("Accept", "application/json");
             httpPost.setHeader("Content-type", "application/json");
             Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();

@@ -37,17 +37,12 @@ import java.util.concurrent.ExecutionException;
 
 public class IOTGridviewFragment extends Fragment {//android.support.v4.app.Fragment {
     private View rootView;
-    //    Toolbar toolbar;
     CollapsingToolbarLayout collapsingToolbarLayoutAndroid;
     CoordinatorLayout rootLayoutAndroid;
-    //    GridView gridView;
-//    ArrayList arrayList;
     private boolean mSearchCheck;
 
     //v2
     GridView gv;
-    //Context context;
-    // ArrayList prgmName;
     public static String[] prgmNameList = {"Nhiệt độ", "Độ ẩm", "Ánh sáng", "Tầm nhìn", "Điểm sương", "Áp suất"};
     public static int[] prgmImages = {
             R.drawable.thermometerlines,
@@ -89,16 +84,6 @@ public class IOTGridviewFragment extends Fragment {//android.support.v4.app.Frag
         // deviceInfo = (Device) getArguments().getSerializable("device");
 
         if (deviceInfo == null) {
-//            Fragment mFragment;
-//            mFragment = new IOTDeviceListFragment();
-//            FragmentManager manager = ((FragmentActivity) getContext()).getSupportFragmentManager();
-//            FragmentTransaction transaction = manager.beginTransaction();
-//            transaction.replace(R.id.container, mFragment).commit();
-
-//            Fragment mFragment = new IOTDeviceListFragment();
-//            FragmentManager manager = ((FragmentActivity) getContext()).getSupportFragmentManager();
-//            manager.beginTransaction().replace(R.id.container, mFragment).commit();
-
             InfoDeviceFragment.reloadIOTDeviceListFragmentt(getContext());
             Log.i("deviceInfonull", String.valueOf(deviceInfo));
 
@@ -140,17 +125,6 @@ public class IOTGridviewFragment extends Fragment {//android.support.v4.app.Frag
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(true);
-/*       toolbar = (Toolbar) getActivity().findViewById(R.id.toolbarf);
-        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);*/
-
-       /*
-        initInstances();*/
-
-    }
-
-    private void initInstances() {
-        collapsingToolbarLayoutAndroid = (CollapsingToolbarLayout) getActivity().findViewById(R.id.collapsing_toolbar_android_layoutf);
-        collapsingToolbarLayoutAndroid.setTitle("Material Grid");
     }
 
     @Override
@@ -187,8 +161,6 @@ public class IOTGridviewFragment extends Fragment {//android.support.v4.app.Frag
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         // TODO Auto-generated method stub
         super.onCreateOptionsMenu(menu, inflater);
-      /*  ActionBar actionBar = getActivity().getActionBar();
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.RED)); // set your desired color*/
 
         inflater.inflate(R.menu.menu, menu);
 
@@ -202,22 +174,11 @@ public class IOTGridviewFragment extends Fragment {//android.support.v4.app.Frag
         ((EditText) searchView.findViewById(R.id.search_src_text))
                 .setHintTextColor(getResources().getColor(R.color.nliveo_white));
 
-/*//v2
-        SearchManager searchManager = (SearchManager)
-                getContext().getSystemService(Context.SEARCH_SERVICE);
-
-        searchView.setSearchableInfo(searchManager.
-                getSearchableInfo(getActivity().getComponentName()));
-        searchView.setSubmitButtonEnabled(true);
-
-//*/
         searchView.setOnQueryTextListener(onQuerySearchView);
 
         searchView.setOnSearchClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(getActivity(), "click search", Toast.LENGTH_LONG).show();
-
                 Fragment mFragment = new IOTSearchListFragment();
                 FragmentManager manager = ((FragmentActivity) getContext()).getSupportFragmentManager();
                 manager.beginTransaction().replace(R.id.container, mFragment).commit();

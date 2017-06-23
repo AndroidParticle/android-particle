@@ -10,7 +10,6 @@
 		>
 
 	<!-- label view will be inserted here -->
-
 	<include layout="@layout/speed_dial_icon_inner"/>
 
 </LinearLayout>

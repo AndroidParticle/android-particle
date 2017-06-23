@@ -7,9 +7,6 @@ import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.View;
 
-/**
- * Created by Valdio Veliu on 1/13/2016.
- */
 public class FAB_Hide_on_Scroll extends FloatingActionButton.Behavior {
 
 

@@ -46,9 +46,6 @@ public class IOTPlaceListFragment extends Fragment {
     TextView txtcountry;
     TextView txtpopulation;
     ImageView imgflag;
-    /*  String rank;
-      String country;
-      String population;*/
     Device device;
     boolean active;
     int flag;
@@ -85,32 +82,12 @@ public class IOTPlaceListFragment extends Fragment {
         if (listPlaceInfos == null) {
             ArrayList<PlaceInfo> listPlace = new ArrayList<PlaceInfo>();
             listPlaceInfos = createSeesionListPlace(getContext(), sharedPreferences, listPlace);
-            // Log.d("listcreatenull", listPlaceInfos.get(0).getDeviceInfo().getNameDevice());
             Log.d("listcreatenull", "null");
         }
-        //  Log.d("listPlacename", listPlaceInfos.get(0).getDeviceInfo().getNameDevice());
         Log.d("listPlacename", "null");
         listPlace = new ListPlace(listPlaceInfos);
 
-        //nhan du lieu khi la activity
-    /*    // Get the intent from ListViewAdapter
-        Intent i = getIntent();
-        // Get the results of rank
-        rank = i.getStringExtra("rank");
-        // Get the results of country
-        country = i.getStringExtra("country");
-        // Get the results of population
-        population = i.getStringExtra("population");
-        // Get the results of flag
-        flag = i.getIntExtra("flag", flag);*/
         try {
-          /*  // Get the results of rank
-            rank = getArguments().getString("rank");
-            // Get the results of country
-            country = getArguments().getString("country");
-            // Get the results of population
-            population = getArguments().getString("population");
-            // Get the results of flag*/
             flag = getArguments().getInt("flag", flag);
             device = (Device) getArguments().getSerializable("device");
             active = getArguments().getBoolean("active", active);
@@ -119,31 +96,10 @@ public class IOTPlaceListFragment extends Fragment {
             listPlace.addPlace(worldPopulation);
             Log.d("addPlace", "null");
 
-          /*  if (MainActivity.configContants.addPlace(worldPopulation)) {
-            } else {
-            }*/
         } catch (Exception e) {
             Log.e("TAG", "Inflate exception");
         }
 
-        //hien thi 1 dien
-       /* // Locate the TextViews in singleitemview.xml
-        txtrank = (TextView) rootView.findViewById(R.id.rank);
-        txtcountry = (TextView) rootView.findViewById(R.id.country);
-        txtpopulation = (TextView) rootView.findViewById(R.id.population);
-
-        // Locate the ImageView in singleitemview.xml
-        imgflag = (ImageView) rootView.findViewById(R.id.flag);
-
-        // Load the results into the TextViews
-        txtrank.setText(rank);
-        txtcountry.setText(country);
-        txtpopulation.setText(population);
-
-        // Load the image into the ImageView
-        imgflag.setImageResource(flag);*/
-
-        //ArrayList<PlaceInfo> arraylistAdd = MainActivity.configContants.getArraylist();
         if (listPlace == null) {
             Log.d("listPlacenull", "null");
             listPlace = new ListPlace();
@@ -153,7 +109,6 @@ public class IOTPlaceListFragment extends Fragment {
         createSeesionListPlace(getContext(), sharedPreferences, arraylistAdd);
         Log.d("showPlace", arraylistAdd.size() + "");
 
-        // Locate the ListView in listview_main.xml
         listAdd = (ListView) rootView.findViewById(R.id.listviewadd);
         // Pass results to ListViewAdapter Class
         adapter = new ListViewPlaceAdapter(getContext(), arraylistAdd);
@@ -169,11 +124,6 @@ public class IOTPlaceListFragment extends Fragment {
         Gson gson = new Gson();
         Type type = new TypeToken<ArrayList<PlaceInfo>>() {
         }.getType();
-       /* //c1
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        String json = sharedPrefs.getString(ConfigApp.getListDevice(), null);
-        ArrayList<Device> arrayList = gson.fromJson(json, type);
-        Log.d("list", arrayList.get(0).getNameDevice());*/
         //c2
         String json2 = sharedPreferences.getString(ConfigApp.getLISTPLACE(), null);
         arrayList2 = gson.fromJson(json2, type);
@@ -195,14 +145,6 @@ public class IOTPlaceListFragment extends Fragment {
             Gson gson = new Gson();
             String json = gson.toJson(listDevice);
             Log.d("listPlacecreate", json);
-            /*   //danh sach thiet bi
-            SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-            SharedPreferences.Editor editors = sharedPrefs.edit();
-            //c1
-            editors.putString(ConfigApp.getListDevice(), json);
-            editors.commit();
-            */
-
             //chuyen cach 2
             editor.putString(ConfigApp.getLISTPLACE(), json);
             editor.commit();
@@ -265,21 +207,11 @@ public class IOTPlaceListFragment extends Fragment {
         ((EditText) searchView.findViewById(R.id.search_src_text))
                 .setHintTextColor(getResources().getColor(R.color.nliveo_white));
 
-/*//v2
-        SearchManager searchManager = (SearchManager)
-                getContext().getSystemService(Context.SEARCH_SERVICE);
-
-        searchView.setSearchableInfo(searchManager.
-                getSearchableInfo(getActivity().getComponentName()));
-        searchView.setSubmitButtonEnabled(true);
-
-//*/
         searchView.setOnQueryTextListener(onQuerySearchView);
 
         searchView.setOnSearchClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(getActivity(), "click search", Toast.LENGTH_LONG).show();
 
                 Fragment mFragment = new IOTSearchListFragment();
                 FragmentManager manager = ((FragmentActivity) getContext()).getSupportFragmentManager();

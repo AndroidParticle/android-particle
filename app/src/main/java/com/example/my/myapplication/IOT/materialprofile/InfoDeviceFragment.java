@@ -135,16 +135,6 @@ public class InfoDeviceFragment extends Fragment {
         }
 
 
-//        List<String> listItems = new ArrayList<String>();
-//        listItems.add("Photon");
-//        listItems.add("Electron");
-//        CharSequence myListDemo[]  = listItems.toArray(new CharSequence[listItems.size()]);
-//
-//        String[] mEntriesString = new String[myListDemo.length];
-//        int i=0;
-//        for(CharSequence ch: myListDemo){
-//            mEntriesString[i++] = ch.toString();
-//        }
         listTypeParticle = checkSessionListType(getContext(), sharedPreferences);
         accountId = checkSessionAccountId(getContext(), sharedPreferences);
         if (listTypeParticle == null) {
@@ -170,7 +160,6 @@ public class InfoDeviceFragment extends Fragment {
         keyThingspeak = (TextView) rootView.findViewById(R.id.keyThingspeak);
         deviceInfo = checkSessionDeviceInfo(getContext(), sharedPreferences);
         //cach 2
-        // deviceInfo = (Device) getArguments().getSerializable("device");
 
         if (deviceInfo == null) {
             reloadIOTDeviceListFragmentt(getContext());
@@ -178,16 +167,6 @@ public class InfoDeviceFragment extends Fragment {
             setDeviceInfo(deviceInfo, listTypeParticle, nameDevice, typeParticle, deviceID, location, keyThingspeak);
 
         }
-        //demo click
-//        FloatingActionButton fabs = (FloatingActionButton) rootView.findViewById(R.id.fab3scroll);
-//        fabs.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-        //end demo click
 
         //cach 2
         //Floating Action Buttons
@@ -250,34 +229,6 @@ public class InfoDeviceFragment extends Fragment {
             }
         });
 
-
-
-
-
-
-        /*//Initialize an empty list of 50 elements
-        List list = new ArrayList();
-        for (int i = 0; i < 50; i++) {
-            list.add(new Object());
-        }*/
-
-//        RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerview);
-//        Recycler_View_Adapter adapter = new Recycler_View_Adapter(list, getContext());
-//        recyclerView.setAdapter(adapter);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-//
-//        recyclerView.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                if (FAB_Status) {
-//                    hideFAB();
-//                    FAB_Status = false;
-//                }
-//                return false;
-//            }
-//        });
-
-
         //end cach 2
 
         //cach 1
@@ -339,8 +290,6 @@ public class InfoDeviceFragment extends Fragment {
         listType = (TextView) alertViewCreate.findViewById(R.id.listTypeParticle);
         editkeyThingspeak = (EditText) alertViewCreate.findViewById(R.id.editkeyThingspeak);
 
-        //setDeviceInfo(deviceInfo, listTypeParticle, editnameDevice, edittypeParticle, editdeviceID, editlocation);
-
         AlertType();
         listType.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -354,12 +303,7 @@ public class InfoDeviceFragment extends Fragment {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-              /*  EditText t_user = (EditText) alertView.findViewById(R.id.usernamedialog);
-                EditText t_pass = (EditText) alertView.findViewById(R.id.passworddialog);
-                String username = t_user.getText().toString();
-                String password = t_pass.getText().toString();
-                Toast toast = Toast.makeText(getContext(), "User: " + username + ", Pass: " + password, Toast.LENGTH_SHORT);
-                toast.show();*/
+
                 String nameDevice = editnameDevice.getText().toString();
                 String typeName = edittypeParticle.getText().toString();
                 String deviceID = editdeviceID.getText().toString();
@@ -398,9 +342,6 @@ public class InfoDeviceFragment extends Fragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // TODO Auto-generated method stub
-              /*  Toast.makeText(getContext(),
-                        "You Have Cancel the Dialog box", Toast.LENGTH_LONG)
-                        .show();*/
                 closeFAB();
             }
         });
@@ -471,12 +412,7 @@ public class InfoDeviceFragment extends Fragment {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-              /*  EditText t_user = (EditText) alertView.findViewById(R.id.usernamedialog);
-                EditText t_pass = (EditText) alertView.findViewById(R.id.passworddialog);
-                String username = t_user.getText().toString();
-                String password = t_pass.getText().toString();
-                Toast toast = Toast.makeText(getContext(), "User: " + username + ", Pass: " + password, Toast.LENGTH_SHORT);
-                toast.show();*/
+
                 String nameDevice = editnameDevice.getText().toString();
                 String typeName = edittypeParticle.getText().toString();
                 String deviceID = editdeviceID.getText().toString();
@@ -525,9 +461,6 @@ public class InfoDeviceFragment extends Fragment {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 // TODO Auto-generated method stub
-              /*  Toast.makeText(getContext(),
-                        "You Have Cancel the Dialog box", Toast.LENGTH_LONG)
-                        .show();*/
                 closeFAB();
             }
         });
@@ -610,18 +543,6 @@ public class InfoDeviceFragment extends Fragment {
     }
 
     public static void error(Context context) {
-      /*
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Lỗi đăng ký");
-        builder.setMessage(message);
-        builder.setPositiveButton("Hủy", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-            }
-        });
-        AlertDialog dialog = builder.create();
-        dialog.show();*/
 
         android.app.AlertDialog alertDialog = new android.app.AlertDialog.Builder(context).create();
         alertDialog.setTitle("Error");
@@ -709,13 +630,6 @@ public class InfoDeviceFragment extends Fragment {
             Gson gson = new Gson();
             String json = gson.toJson(listDevice);
             Log.d("listType", json);
-            /*   //danh sach thiet bi
-            SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-            SharedPreferences.Editor editors = sharedPrefs.edit();
-            //c1
-            editors.putString(ConfigApp.getListDevice(), json);
-            editors.commit();
-            */
 
             //chuyen cach 2
             editor.putString(ConfigApp.getLISTTYPE(), json);
@@ -735,15 +649,9 @@ public class InfoDeviceFragment extends Fragment {
         Gson gson = new Gson();
         Type type = new TypeToken<ArrayList<TypeParticle>>() {
         }.getType();
-       /* //c1
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        String json = sharedPrefs.getString(ConfigApp.getListDevice(), null);
-        ArrayList<Device> arrayList = gson.fromJson(json, type);
-        Log.d("list", arrayList.get(0).getNameDevice());*/
         //c2
         String json2 = sharedPreferences.getString(ConfigApp.getLISTTYPE(), null);
         ArrayList<TypeParticle> arrayList2 = gson.fromJson(json2, type);
-//        Log.d("list2", arrayList2.get(0).getNameType());
         return arrayList2;
     }
 
@@ -752,15 +660,9 @@ public class InfoDeviceFragment extends Fragment {
         Gson gson = new Gson();
         Type type = new TypeToken<Device>() {
         }.getType();
-       /* //c1
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        String json = sharedPrefs.getString(ConfigApp.getListDevice(), null);
-        ArrayList<Device> arrayList = gson.fromJson(json, type);
-        Log.d("list", arrayList.get(0).getNameDevice());*/
         //c2
         String json2 = sharedPreferences.getString(ConfigApp.getDEVICEINFO(), null);
         Device device = gson.fromJson(json2, type);
-//        Log.d("list2", arrayList2.get(0).getNameType());
         return device;
     }
 

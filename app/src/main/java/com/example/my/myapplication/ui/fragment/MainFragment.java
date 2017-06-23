@@ -85,22 +85,11 @@ public class MainFragment extends Fragment {
         ((EditText) searchView.findViewById(R.id.search_src_text))
                 .setHintTextColor(getResources().getColor(R.color.nliveo_white));
 
-/*//v2
-        SearchManager searchManager = (SearchManager)
-                getContext().getSystemService(Context.SEARCH_SERVICE);
-
-        searchView.setSearchableInfo(searchManager.
-                getSearchableInfo(getActivity().getComponentName()));
-        searchView.setSubmitButtonEnabled(true);
-
-//*/
         searchView.setOnQueryTextListener(onQuerySearchView);
 
         searchView.setOnSearchClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(getActivity(), "click search", Toast.LENGTH_LONG).show();
-
                 Fragment mFragment = new IOTSearchListFragment();
                 FragmentManager manager = ((FragmentActivity) getContext()).getSupportFragmentManager();
                 manager.beginTransaction().replace(R.id.container, mFragment).commit();

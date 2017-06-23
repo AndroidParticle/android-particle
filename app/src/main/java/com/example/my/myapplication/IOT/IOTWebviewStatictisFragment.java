@@ -72,7 +72,6 @@ public class IOTWebviewStatictisFragment extends Fragment {
         } catch (InflateException e) {
             Log.e("TAG", "Inflate exception");
         }
-        //  Toast.makeText(getContext(), strtextClick, Toast.LENGTH_SHORT).show();
 
         Log.e("TAG", "Inflate exception-----------------" + strtextClick);
 
@@ -110,29 +109,7 @@ public class IOTWebviewStatictisFragment extends Fragment {
         });
 
 
-      /*  webView.getSettings().setPluginState(WebSettings.PluginState.ON);
-        webView.getSettings().setPluginState(WebSettings.PluginState.ON_DEMAND);
-
-        webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-        webView.getSettings().setSupportMultipleWindows(true);
-        webView.setHorizontalScrollBarEnabled(false);
-        webView.getSettings().setDomStorageEnabled(true);
-
-        webView.clearCache(true);
-        webView.clearHistory();*/
-
         this.webView.setWebViewClient(new myWebViewClient());
-              /*webView.setDownloadListener(new DownloadListener() {
-            public void onDownloadStart(String url, String userAgent,
-                                        String contentDisposition, String mimetype,
-                                        long contentLength) {
-
-                Uri uri = Uri.parse(url);
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-            }
-        });*/
-
         //c1
         // webView.loadUrl("http://www.google.com/");
         //webView.loadUrl("http://beta.html5test.com/");
@@ -182,25 +159,6 @@ public class IOTWebviewStatictisFragment extends Fragment {
             webView.loadUrl("file:///android_asset/iframe.html");
         }
 
-
-        //test set value
-        //The html variable has the html contents of the file stored in the assets folder
-        //and real_video_url string variable has the correct video url
-//        html = html.replace("$VIDEO_URL$", real_video_url);
-//        webview.loadData(html, "text/html", "utf-8");
-
-        // test
-        // String htmlstr = "<iframe width=\"450\" height=\"260\" style=\"border: 1px solid #cccccc;\" src=\"http://api.thingspeak.com/channels/142070/charts/1?width=450&height=260&results=60&dynamic=true\" ></iframe>";
-
-        // webView.loadData(htmlstr, "text/html", null);
-
-       /* if (Build.VERSION.SDK_INT >= 19) {
-            webView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
-        } else {
-            webView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-        }*/
-
-
         return rootView;
     }
 
@@ -210,11 +168,6 @@ public class IOTWebviewStatictisFragment extends Fragment {
         Gson gson = new Gson();
         Type type = new TypeToken<ArrayList<Thingspeak>>() {
         }.getType();
-       /* //c1
-        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-        String json = sharedPrefs.getString(ConfigApp.getListDevice(), null);
-        ArrayList<Device> arrayList = gson.fromJson(json, type);
-        Log.d("list", arrayList.get(0).getNameDevice());*/
         //c2
         String json2 = sharedPreferences.getString(ConfigApp.getLISTTHINGSPEAK(), null);
         arrayList2 = gson.fromJson(json2, type);
@@ -236,14 +189,6 @@ public class IOTWebviewStatictisFragment extends Fragment {
             Gson gson = new Gson();
             String json = gson.toJson(listThingspeak);
             Log.d("logingetlist", json);
-            /*   //danh sach thiet bi
-            SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-            SharedPreferences.Editor editors = sharedPrefs.edit();
-            //c1
-            editors.putString(ConfigApp.getListDevice(), json);
-            editors.commit();
-            */
-
             //chuyen cach 2
             editor.putString(ConfigApp.getLISTTHINGSPEAK(), json);
             editor.commit();

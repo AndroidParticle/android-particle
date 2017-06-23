@@ -48,9 +48,6 @@ public class TestMapFragmentTemp extends Fragment implements OnMapReadyCallback 
     double latitude;
     double longitude;
     //end gps
-    // GoogleMap mMap;
-    // MapView mMapView;
-    // Context context;
 
     //demo2
     private ViewGroup infoWindow;
@@ -100,10 +97,6 @@ public class TestMapFragmentTemp extends Fragment implements OnMapReadyCallback 
         gps = new GPSTracker(getContext());
 
         if (gps.canGetLocation()) {
-//            double latitude = gps.getLatitude();
-//            double longitude = gps.getLongitude();
-//            latitudegps = gps.getLatitude();
-//            longitudegps = gps.getLongitude();
             Log.d("toadoLAgps==", "" + latitude);
             latitude = gps.getLatitude();
             longitude = gps.getLongitude();
@@ -119,15 +112,10 @@ public class TestMapFragmentTemp extends Fragment implements OnMapReadyCallback 
         } else {
             gps.showSettingsAlert();
         }
-        // MarkerPoints = new ArrayList<>();
-//        LatLng point = new LatLng(gps.getLatitude(), gps.getLongitude());
-//        MarkerPoints.add(point);
-
         //end gps
 
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.mapclickmore);
 
-        //final SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         final MapWrapperLayout mapWrapperLayout = (MapWrapperLayout) rootView.findViewById(R.id.map_relative_layout);
         final GoogleMap googleMap = mapFragment.getMap();
 
@@ -138,7 +126,6 @@ public class TestMapFragmentTemp extends Fragment implements OnMapReadyCallback 
 
         // We want to reuse the info window for all the markers,
         // so let's create only one class member instance
-        // this.infoWindow = (ViewGroup) getLayoutInflater().inflate(R.layout.custom_infowindow, null);
         this.infoWindow = (ViewGroup) inflater.inflate(R.layout.custom_infowindow, null);
         this.infoTitle = (TextView) infoWindow.findViewById(R.id.nameTxt);
         this.infoSnippet = (TextView) infoWindow.findViewById(R.id.addressTxt);
@@ -172,12 +159,6 @@ public class TestMapFragmentTemp extends Fragment implements OnMapReadyCallback 
         };
         infoButton2.setOnTouchListener(infoButtonListener);
 
-        /*infoWindow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "click on infowindow", Toast.LENGTH_LONG).show();
-            }
-        });*/
 
         googleMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
             @Override
@@ -217,20 +198,7 @@ public class TestMapFragmentTemp extends Fragment implements OnMapReadyCallback 
                     .snippet(listDevice.get(i).getLocation())
                     .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
         }
-      /*  googleMap.addMarker(new MarkerOptions()
-                .position(latlng1)
-                .title("Source")
-                .snippet("Comapny Name")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
-
-        googleMap.addMarker(new MarkerOptions()
-                .position(latlng2)
-                .title("Destination")
-                .snippet("AmisunXXXXXX")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));*/
-
-        //googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latlng, 15));
-        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(locationGPS, 10));
+       googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(locationGPS, 10));
         return rootView;
 
     }
@@ -269,59 +237,30 @@ public class TestMapFragmentTemp extends Fragment implements OnMapReadyCallback 
         final float scale = context.getResources().getDisplayMetrics().density;
         return (int) (dp * scale + 0.5f);
     }
-/*
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        context = getContext();
-        String strtext = "";
-        try {
-            strtext = getArguments().getString("message");
-            Log.e("TAG", "Inflate exception-----------------" + strtext);
-        } catch (Exception x) {
-        }
-
-        try {
-            rootView = inflater.inflate(R.layout.fragment_test_map, container, false);
-            MapsInitializer.initialize(this.getActivity());
-            mMapView = (MapView) rootView.findViewById(R.id.mapgms);
-            mMapView.onCreate(savedInstanceState);
-            mMapView.getMapAsync(this);
-        } catch (InflateException e) {
-            Log.e("TAG", "Inflate exception");
-        }
-        TextView textViewmap = (TextView) rootView.findViewById(R.id.textViewmap);
-        textViewmap.setText(strtext);
-        return rootView;
-    }*/
 
     @Override
     public void onPause() {
         super.onPause();
-        // mMapView.onPause();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        // mMapView.onDestroy();
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        //  mMapView.onSaveInstanceState(outState);
     }
 
     @Override
     public void onLowMemory() {
         super.onLowMemory();
-        //  mMapView.onLowMemory();
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        // mMapView.onResume();
     }
 
     @Override
@@ -336,30 +275,7 @@ public class TestMapFragmentTemp extends Fragment implements OnMapReadyCallback 
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-//todo
-//        mMap = googleMap;
-        // Add a marker in Sydney and move the camera
-//        LatLng sydney = new LatLng(-34, 151);
-//        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
- /*
-        googleMap.addMarker(new MarkerOptions()
-                .position(new LatLng(37.4233438, -122.0728817))
-                .title("LinkedIn")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
 
-        googleMap.addMarker(new MarkerOptions()
-                .position(new LatLng(37.4629101, -122.2449094))
-                .title("Facebook")
-                .snippet("Facebook HQ: Menlo Park"));
-
-        googleMap.addMarker(new MarkerOptions()
-                .position(new LatLng(37.3092293, -122.1136845))
-                .title("Apple"));
-
-        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(37.4233438, -122.0728817), 10));
-        mMap = googleMap;
-*/
     }
 
 

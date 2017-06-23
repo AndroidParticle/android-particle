@@ -159,13 +159,6 @@ public class LoginActivity extends AppCompatActivity {
             Gson gson = new Gson();
             String json = gson.toJson(listDevice);
             Log.d("logingetlist", json);
-            /*   //danh sach thiet bi
-            SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-            SharedPreferences.Editor editors = sharedPrefs.edit();
-            //c1
-            editors.putString(ConfigApp.getListDevice(), json);
-            editors.commit();
-            */
 
             //chuyen cach 2
             editor.putString(ConfigApp.getListDevice(), json);
@@ -186,18 +179,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void showDialogErrorLogin() {
-       /* AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
-        builder.setTitle("Lỗi đăng nhập");
-        builder.setMessage("Tên đăng nhập hoặc mật khẩu không đúng");
-        builder.setPositiveButton("Hủy", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-            }
-        });
-        AlertDialog dialog = builder.create();
-        dialog.show();*/
-
-
         AlertDialog alertDialog = new AlertDialog.Builder(getApplicationContext()).create();
         alertDialog.setTitle("Lỗi đăng nhập");
         alertDialog.setMessage("Tên đăng nhập hoặc mật khẩu không đúng");
